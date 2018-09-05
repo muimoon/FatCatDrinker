@@ -31,8 +31,8 @@ void setup()
   pinMode(sensitive_input, INPUT);
   //pinMode(sensitive_output, OUTPUT);
   //digitalWrite(sensitive_output, HIGH);
-  pinMode( LED_BUILTIN_TX, INPUT);
-  pinMode( LED_BUILTIN_RX, INPUT);
+  //pinMode(LED_BUILTIN_TX, INPUT);
+  //pinMode(LED_BUILTIN_RX, INPUT);
 }
 void loop()
 {
@@ -86,6 +86,7 @@ void loop()
       if (flag == false) {
         digitalWrite(valve, LOW);
         digitalWrite(ledpin, LOW);
+        delay(60000);
       }
     }
     else
