@@ -11,10 +11,11 @@ int button = A1;
 int valve = A2;    // water valve output
 
 int stop_but = A3;
+int stop_led = 9;
 boolean stop_flag = false;
 boolean flag = false;
 void setup()
-{ //初始化串口及引脚的输入、输出模式
+{ 
   //Serial.begin(9600);
   pinMode(valve, OUTPUT);
   pinMode(ledpin, OUTPUT);
@@ -49,10 +50,10 @@ void loop()
     {
       digitalWrite(valve, LOW);
       digitalWrite(ledpin, LOW);
-      digitalWrite(9, HIGH);
-      break;
+      digitalWrite(stop_led, HIGH); 
+      break;//stop button to be pressed to restore water
     }
-    digitalWrite(9, LOW);
+    digitalWrite(stop_led, LOW);
     unsigned int x1, x2;
     digitalWrite(SR04_outputPin, LOW); //使发出发出超声波信号接口低电平2 μs
     delayMicroseconds(2);
@@ -65,7 +66,7 @@ void loop()
     //Serial.println(distance1);
     x1 = distance1 * 100.0;
     distance1 = x1 / 100.0; //保留两位小数
-    //   Serial.print("x1 = ");
+    //  Serial.print("x1 = ");
     //  Serial.println(distance1);   // 输出距离值
     delay(150);
     float temp1 = analogRead(sensitive_input) / 4;
