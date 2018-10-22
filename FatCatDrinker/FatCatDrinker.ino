@@ -19,7 +19,11 @@ void setup()
   //Serial.begin(9600);
   pinMode(valve, OUTPUT);
   pinMode(ledpin, OUTPUT);
-  pinMode(9, OUTPUT);
+  pinMode(stop_led, OUTPUT);
+    
+  pinMode(button,INPUT_PULLUP);  
+  pinMode(stop_but,INPUT_PULLUP);
+  
   pinMode(SR04_inputPin, INPUT);
   pinMode(SR04_outputPin, OUTPUT);
 
@@ -30,8 +34,6 @@ void setup()
   digitalWrite(SR04_GND, LOW);
 
   pinMode(sensitive_input, INPUT);
-  //pinMode(sensitive_output, OUTPUT);
-  //digitalWrite(sensitive_output, HIGH);
   pinMode(LED_BUILTIN_TX, INPUT);
   pinMode(LED_BUILTIN_RX, INPUT);
 }
@@ -94,8 +96,8 @@ void loop()
     {
       digitalWrite(valve, HIGH);
       digitalWrite(ledpin, HIGH);
-      delay(60000);
+      delay(60000);//working delay
     }
-    //   delay(1000);
+
   }
 }
