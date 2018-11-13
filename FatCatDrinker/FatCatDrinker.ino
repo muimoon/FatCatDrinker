@@ -23,6 +23,7 @@ boolean stop_flag = false;
 void blink() // interrupt
 {
 	stop_flag = !stop_flag;
+ delay(200);
 }
 
 void setup()
@@ -70,7 +71,9 @@ void loop()
 		{
 			digitalWrite(valve, HIGH);
 			digitalWrite(ledpin, HIGH);
-			delay(60000); // working delay
+			delay(20000); // working delay
+      digitalWrite(valve, LOW);
+      digitalWrite(ledpin, LOW);
 		}
 	}
 }
