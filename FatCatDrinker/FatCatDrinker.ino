@@ -37,6 +37,8 @@ void setup()
 	// 
 	// 
 	pinMode(sensitive_input, INPUT);
+
+	sensitive = map(analogRead(sensitive_input),1,1023,5,25);//added for last setting record
 }
 
 void loop()
